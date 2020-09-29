@@ -4,7 +4,7 @@ import sys
 import requests
 import json
 
-WEB_HOOK_URL = "https://hooks.slack.com/services/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"
+WEB_HOOK_URL = "https://hooks.slack.com/services/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"
 
 def shuttaikinNotify(msg):
 	requests.post(WEB_HOOK_URL, data=json.dumps({
