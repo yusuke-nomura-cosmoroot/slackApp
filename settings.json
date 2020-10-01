@@ -1,4 +1,5 @@
 {
+  "webhookurl": "https://hooks.slack.com/services/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",
   "username": "testユーザ",
   "message": "おはようございます。\n勤務開始します。"
 }

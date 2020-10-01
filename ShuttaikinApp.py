@@ -4,12 +4,18 @@ import sys
 import requests
 import json
 
-WEB_HOOK_URL = "https://hooks.slack.com/services/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"
+SETTINGS_JSON = "settings.json"
+ENCODING = "utf-8_sig"
 
 def shuttaikinNotify(msg):
-	requests.post(WEB_HOOK_URL, data=json.dumps({
-		"text" : msg
-	}))
+	json_open = open(SETTINGS_JSON, "r", encoding=ENCODING)
+	json_load = json.load(json_open)
+	if "webhookurl" in json_load:
+		requests.post(json_load["webhookurl"], data=json.dumps({
+			"text" : msg
+		}))
+	else:
+		print("設定ファイルエラー")
 
 if __name__=="__main__":
 	if len(sys.argv) != 2:
