@@ -6,7 +6,7 @@ import datetime
 
 SETTINGS_JSON = "settings.json"
 RESULTS_JSON = "results.json"
-ENCODING = "utf-8_sig"
+ENCODING = "utf-8"
 
 json_open = open(SETTINGS_JSON, "r", encoding=ENCODING)
 json_load = json.load(json_open)
@@ -26,7 +26,7 @@ if "username" in json_load and "message" in json_load:
 		with open(RESULTS_JSON, "w", encoding=ENCODING) as outfile:
 			json.dump(json_load2, outfile)
 		#出退勤メソッド実行
-		ShuttaikinApp.shuttaikinNotify(json_load["username"]+"\n"+json_load["message"])
+		ShuttaikinApp.shuttaikinNotify(json_load["message"])
 	else:
 		print("出退勤実施済")
 else:
